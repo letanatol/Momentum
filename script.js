@@ -24,7 +24,7 @@ function showTimeDateBlock() {
   const minutes = currentTimestamp.getMinutes();
   const seconds = currentTimestamp.getSeconds();
 
-  const currentTime = `${hours}:${addZero(minutes)}:${addZero(seconds)}`;
+  const currentTime = `${addZero(hours)}:${addZero(minutes)}:${addZero(seconds)}`;
 
   let optionsDate = {
     month: "long",
