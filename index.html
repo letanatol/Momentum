@@ -19,6 +19,7 @@
       <h2 class="date"></h2>
     </div>
   </div>
+
   <div class="weather-container">
     <h3 class="city"></h3>
     <p class="weather">
@@ -27,7 +28,24 @@
     </p>
   </div>
 
+  <div class="todo-container">
+    <h3 class="todo-title">ToDo</h3>
+    <form action=""
+      class="todo-form">
+      <input id="todo-input"
+        type="text"
+        class="todo-input"
+        placeholder="Add a Task"
+        autocomplete="off">
+      <p class="error-message">Task cannot be empty</p>
+    </form>
+    <ul id="todo-list"
+      class="todo-list"></ul>
+    <button class="delete-all-button">Remove all completed tasks</button>
+  </div>
+
   <script src="script.js"></script>
+  <script src="todo.js"></script>
 </body>
 
 </html>
