@@ -6,7 +6,6 @@ const tempElement = document.querySelector('.weather-temperature');
 const descriptionElement = document.querySelector('.weather-description');
 
 const WEATHER_API_KEY = 'a641e487284291b3b714caeac6f11871';
-const myCity = 'Krasnodar';
 
 function addZero(n) {
   return (parseInt(n, 10) < 10 ? "0" : "") + n;
@@ -60,13 +59,14 @@ function getPositionByGeolocation() {
       const longitude = position.coords.longitude;
 
       setPositionToLocalStorage(latitude, longitude);
-
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+      getWeather();
     }, (error) => {
       console.error(`Error occurred. Error code: ${error.code}`);
+      getWeather();
     });
   } else {
     console.error("Geolocation is not supported by this browser.");
+    getWeather();
   }
 }
 
@@ -86,7 +86,6 @@ async function getWeather() {
       cityElement.textContent = data.name;
       tempElement.textContent = `${data.main.temp.toFixed(0)}°C`;
       descriptionElement.textContent = description;
-      console.log('weather: ', data);
     } else {
       console.log('Error:', data.message);
     }
@@ -98,4 +97,3 @@ async function getWeather() {
 showTimeDateBlock();
 setInterval(showTimeDateBlock, 1000);
 getPositionByGeolocation();
-getWeather();
